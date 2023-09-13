@@ -12,13 +12,13 @@ body {
 }
 
 .table-container {
-
+    
     text-align: center;
     overflow: hidden;
     max-height: 1000px; /* Adjust this value to match your content height */
     transition: max-height 1.5s ease-in-out;
-    width: 1000px; 
-    margin-top: 250px;
+    width: 90%; 
+    margin-left: 300px;;
 }
 
 .table-container.closed {
@@ -33,7 +33,7 @@ body {
     overflow: hidden;
     border: 4px solid rgb(0, 0, 0);
     margin-top: 20px;
-    margin-left: 200px;
+
 }
 
 .leave-table th, .leave-table td {
