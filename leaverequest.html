@@ -23,7 +23,7 @@
           >
             <div>
               <label for="leaveType">Leave Type:</label>
-              <select id="leaveType" name="leaveType">
+              <select class="leavereq_input" id="leaveType" name="leaveType">
                 <option value="Casual Leave">Casual Leave</option>
                 <option value="On Duty">On Duty</option>
                 <option value="Maternity Leave">Maternity Leave</option>
@@ -36,18 +36,19 @@
             <div class="date-container">
               <div>
                 <label for="fromDate">From Date:</label>
-                <input type="date" id="fromDate" name="fromDate" required />
+                <input class="leavereq_input" type="date" id="fromDate" name="fromDate" required />
               </div>
               <span>to</span>
               <div>
                 <label for="toDate">To Date:</label>
-                <input type="date" id="toDate" name="toDate" required />
+                <input class="leavereq_input" type="date" id="toDate" name="toDate" required />
               </div>
             </div>
 
             <div>
               <label for="reason">Reason:</label>
               <textarea
+              class="leavereq_input"
                 id="reason"
                 name="reason"
                 rows="4"
@@ -59,6 +60,7 @@
             <div class="radio-group">
               <label>Leave Duration:</label>
               <input
+                class="leavereq_radio"
                 type="radio"
                 id="halfDay"
                 name="duration"
@@ -66,6 +68,7 @@
               />
               <label for="halfDay">Half Day</label>
               <input
+              class="leavereq_radio"
                 type="radio"
                 id="fullDay"
                 name="duration"
@@ -77,6 +80,7 @@
             <div>
               <label for="letter">Upload Letter:</label>
               <input
+              class="leavereq_input"
                 type="file"
                 id="letter"
                 name="letter"
@@ -84,7 +88,7 @@
               />
             </div>
             <br />
-            <input type="submit" />
+            <input class="leavereq_submit" type="submit" />
           </form>
         </div>
       </div>

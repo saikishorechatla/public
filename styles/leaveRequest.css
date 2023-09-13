@@ -53,10 +53,8 @@ label {
   display: inline-block;
   width: 150px;
 }
-select,
-input[type="date"],
-textarea,
-input[type="file"] {
+
+.leavereq_input{
   width: 100%;
   padding: 8px;
   margin: 8px 0;
@@ -67,11 +65,11 @@ input[type="file"] {
 .radio-group {
   margin: 10px 0;
 }
-input[type="radio"] {
+.leavereq_radio {
   margin-right: 5px;
 }
 
-input[type="submit"] {
+.leavereq_submit {
   background-color: #007bff;
   color: white;
   border: none;
@@ -83,7 +81,7 @@ input[type="submit"] {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   animation: buttonAnimation 2s infinite linear; /* Add button animation */
 }
-input[type="submit"]:hover {
+.leavereq_submit:hover {
   background-color: #0056b3;
 }
 .date-container {
@@ -91,18 +89,25 @@ input[type="submit"]:hover {
   justify-content: space-between;
   align-items: center;
 }
-select:focus,
-input[type="date"]:focus,
-textarea:focus,
-input[type="file"]:focus {
+
+.leavereq_input:focus{
   outline: none;
   border-color: #007bff;
   border-bottom-width: 4px;
+  animation: inputfocusanimation 0.3s;
 }
-select:hover,
-input[type="date"]:hover,
-textarea:hover,
-input[type="file"]:hover {
+@keyframes inputfocusanimation{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.05);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+.leavereq_input:hover {
   outline: none;
   border-color: #007bff;
   border-bottom-width: 4px;
