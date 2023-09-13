@@ -49,7 +49,7 @@ body{
 .addemp_input:focus{
     outline: none;
   border-color: #007bff;
-  /* border-bottom-width: 4px; */
+  border-bottom-width: 4px;
   animation: inputfocusanimation 0.3s;
 }
 
