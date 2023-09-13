@@ -1,5 +1,5 @@
 body{
-  background-color: #bcd0ffd3;
+  background-color: #1a73e8;
 }
 .addemployee-container{
     margin-top: 50px;
@@ -51,7 +51,20 @@ body{
 .addemp_input:focus{
     outline: none;
   border-color: #007bff;
-  border-bottom-width: 4px;
+  /* border-bottom-width: 4px; */
+  animation: inputfocusanimation 0.3s;
+}
+
+@keyframes inputfocusanimation{
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.05);
+  }
+  100%{
+    transform: scale(1);
+  }
 }
 .addemp_input:hover{
     border-color: rgb(0, 191, 255);
