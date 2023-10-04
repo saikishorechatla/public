@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search by ID</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./styles/sidenavbar.css" />
+    <link rel="stylesheet" href="./styles/deleteemp.css"/>
+  </head>
+  <body>
+    <div class="side_sidebar">
+      <div class="side_sidebar-header">
+        <span class="side_logo">
+          <img
+            src="static/img/logo.png"
+            width="200px"
+            height="100px"
+            alt="logo"
+        /></span>
+      </div>
+      <a href="addemployee.html" class="side_nav-link">
+        <i class="bi bi-person-plus-fill"></i>
+        <span class="link-text">Add Staff</span>
+      </a>
+      <a href="updateemp.html" class="side_nav-link">
+        <i class="bi bi-person-fill-gear"></i>
+        <span class="link-text">Update Staff</span>
+      </a>
+      <a href="deleteemp.html" class="side_nav-link">
+        <i class="bi bi-person-x-fill"></i>
+        <span class="link-text">Delete Staff</span>
+      </a>
+      <a href="index.html" class="side_nav-link">
+        <i class="bi bi-box-arrow-right"></i>
+        <span class="link-text">Logout</span>
+      </a>
+    </div>
+    <div class="container mt-5" >
+      <h1>Enter ID to Delete</h1>
+      <div class="form-group">
+        <label for="searchInput">Enter ID:</label>
+        <input type="text" class="form-control" id="searchInput" placeholder="Enter ID"/>
+      </div>
+      <button class="btn btn-primary" onclick="searchById()">Search</button>
+      <div id="result" class="mt-3">
+        <!-- Display search results here -->
+      </div>
+    </div>
+
+    <!-- Add Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      // Sample data for demonstration
+      const data = [
+        { id: 1, name: "Item 1" },
+        { id: 2, name: "Item 2" },
+        { id: 3, name: "Item 3" },
+        // Add more data as needed
+      ];
+
+      function searchById() {
+        const inputElement = document.getElementById("searchInput");
+        const searchId = parseInt(inputElement.value);
+        const resultElement = document.getElementById("result");
+
+        const item = data.find((item) => item.id === searchId);
+
+        if (item) {
+          resultElement.innerHTML = `
+                    <div class="alert alert-success">
+                        ID: ${item.id}, Name: ${item.name}
+                        <button class="btn btn-danger ml-3" onclick="deleteItem(${item.id})">Delete</button>
+                    </div>
+                `;
+        } else {
+          resultElement.innerHTML =
+            '<div class="alert alert-danger">ID not found.</div>';
+        }
+      }
+
+      function deleteItem(id) {
+        // Implement delete logic here, e.g., remove item from the data array
+        const index = data.findIndex((item) => item.id === id);
+        if (index !== -1) {
+          data.splice(index, 1);
+          // You can also update the UI or perform other actions here
+          alert(`Item with ID ${id} has been deleted.`);
+          // Clear the result element
+          document.getElementById("result").innerHTML = "";
+        }
+      }
+    </script>
+  </body>
+</html>

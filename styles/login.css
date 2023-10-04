@@ -52,7 +52,7 @@ body {
   margin-left: 120px;
 }
 .loginlabel {
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 20px;
 }
 .login-form input {

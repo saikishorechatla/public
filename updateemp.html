@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search and Update by ID</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./styles/sidenavbar.css" />
+    <link rel="stylesheet" href="./styles/updateemp.css" />
+  </head>
+  <body>
+    <div class="side_sidebar">
+      <div class="side_sidebar-header">
+        <span class="side_logo">
+          <img
+            src="static/img/logo.png"
+            width="200px"
+            height="100px"
+            alt="logo"
+        /></span>
+      </div>
+      <a href="addemployee.html" class="side_nav-link">
+        <i class="bi bi-person-plus-fill"></i>
+        <span class="link-text">Add Staff</span>
+      </a>
+      <a href="updateemp.html" class="side_nav-link">
+        <i class="bi bi-person-fill-gear"></i>
+        <span class="link-text">Update Staff</span>
+      </a>
+      <a href="deleteemp.html" class="side_nav-link">
+        <i class="bi bi-person-x-fill"></i>
+        <span class="link-text">Delete Staff</span>
+      </a>
+      <a href="index.html" class="side_nav-link">
+        <i class="bi bi-box-arrow-right"></i>
+        <span class="link-text">Logout</span>
+      </a>
+    </div>
+    <div class="container mt-5">
+      <h1>Search and Update by ID</h1>
+      <div class="form-group">
+        <label for="searchInput">Enter ID:</label>
+        <input type="text" class="form-control" id="searchInput" />
+      </div>
+      <button class="btn btn-primary" onclick="searchById()">Search</button>
+      <div id="result" class="mt-3"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      const data = [
+        {
+          id: 1,
+          name: "Item 1",
+          email: "item1@example.com",
+          number: "123-456-7890",
+        },
+        {
+          id: 2,
+          name: "Item 2",
+          email: "item2@example.com",
+          number: "987-654-3210",
+        },
+        {
+          id: 3,
+          name: "Item 3",
+          email: "item3@example.com",
+          number: "555-555-5555",
+        },
+      ];
+
+      function searchById() {
+        const inputElement = document.getElementById("searchInput");
+        const searchId = parseInt(inputElement.value);
+        const resultElement = document.getElementById("result");
+
+        const item = data.find((item) => item.id === searchId);
+
+        if (item) {
+          resultElement.innerHTML = `
+                    <div class="alert alert-success">
+                        <h4>ID: ${item.id}</h4>
+                        <form>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" value="${item.email}">
+                            </div>
+                            <div class="form-group">
+                                <label for="number">Number:</label>
+                                <input type="text" class="form-control" id="number" value="${item.number}">
+                            </div>
+                            <button class="btn btn-primary" onclick="updateItem(${item.id})">Update</button>
+                        </form>
+                    </div>
+                `;
+        } else {
+          resultElement.innerHTML =
+            '<div class="alert alert-danger">ID not found.</div>';
+        }
+      }
+
+      function updateItem(id) {
+        const emailInput = document.getElementById("email").value;
+        const numberInput = document.getElementById("number").value;
+
+        const itemIndex = data.findIndex((item) => item.id === id);
+
+        if (itemIndex !== -1) {
+          data[itemIndex].email = emailInput;
+          data[itemIndex].number = numberInput;
+
+          alert(`Item with ID ${id} has been updated.`);
+        }
+      }
+    </script>
+  </body>
+</html>
